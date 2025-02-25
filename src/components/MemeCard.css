@@ -1,0 +1,35 @@
+.meme-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px8px rgba(0, 0, 5, 5);
+}
+
+@media (max-width: 640px) {
+  .meme-card {
+    max-width: 300px;
+  }
+}
+
+.meme-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #7c7272;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  margin-top: 60px; /* Adjust based on navbar height */
+}
