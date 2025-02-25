@@ -135,7 +135,7 @@ const Explorer = () => {
               className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
                 selectedCategory === category
                   ? 'bg-accent text-white'
-                  : ' text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : ' text-white bg-gray-100 dark:bg-gray-800'
               }`}
             >
               {category}
@@ -146,7 +146,7 @@ const Explorer = () => {
 
       {/* Memes Grid */}
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 "
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         layout
       >
         {displayedMemes.map((meme) => (
@@ -163,9 +163,9 @@ const Explorer = () => {
       </motion.div>
 
       {/* Loading Indicator */}
-      <div ref={loader} className="h-20 flex items-center justify-center ">
+      <div ref={loader} className="h-20 flex items-center justify-center">
         {status === 'loading' && (
-          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-accent "></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-accent"></div>
         )}
       </div>
     </div>
