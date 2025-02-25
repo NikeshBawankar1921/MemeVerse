@@ -133,7 +133,7 @@ const Profile = () => {
 
           {/* Profile Info */}
           <div className="flex-1 text-center md:text-left bg-white">
-            <div className="flex items-center justify-center md:justify-start gap-4 mb-2">
+            <div className="flex items-center justify-center md:justify-start gap-4 mb-2 bg-white">
               {isEditing ? (
                 <input
                   type="text"
@@ -159,7 +159,7 @@ const Profile = () => {
                 rows="2"
               />
             ) : (
-              <p className="text-gray-600 dark:text-gray-400">{profile.bio}</p>
+              <p className="text-gray-600 dark:text-gray-400 bg-white">{profile.bio}</p>
             )}
           </div>
         </div>

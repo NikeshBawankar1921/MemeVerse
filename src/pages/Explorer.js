@@ -98,15 +98,15 @@ const Explorer = () => {
   return (
     <div className="max-w-6xl mx-auto">
       {/* Search and Filter Section */}
-      <div className="sticky top-16 z-40 bg-gray-200 dark:bg-pink-200 p-4 rounded-xl shadow-lg mb-6">
+      <div className="sticky  z-40 bg-white dark:bg-pink-200 p-4 rounded-xl shadow-lg mb-6">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search Bar */ }
           <div className="relative flex-1">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-black" />
             <input
               type="text"
               placeholder="Search memes..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg border dark:border-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-accent focus:border-transparent text-white"
+              className="w-full pl-10 pr-4 py-2 rounded-lg border dark:border-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-accent focus:border-transparent text-black"
               onChange={(e) => handleSearch(e.target.value)}
             />
           </div>
@@ -132,10 +132,10 @@ const Explorer = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+              className={`px-4 py-2 rounded-full border-black whitespace-nowrap transition-colors dark:text-white ${
                 selectedCategory === category
-                  ? 'bg-accent text-white'
-                  : ' text-white bg-gray-100 dark:bg-gray-800'
+                  ? 'bg-red-500 text-black '
+                  : 'bg-gray-100 dark:bg-gray-800'
               }`}
             >
               {category}

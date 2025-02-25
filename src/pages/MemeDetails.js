@@ -87,14 +87,13 @@ const MemeDetails = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center space-x-2 mb-6  transition-colors  dark:text-gray-900  "
+        className="flex items-center space-x-2 mb-6  transition-colors "
       >
-        <ArrowLeftIcon className="h-10 w-10 border-2 border-white text-white " />
-        <ArrowLeftIcon className="h-10 w-10 border-2 border-white text-gray-900 " />
-        
+        <ArrowLeftIcon className="h-5 w-5" />
+        <span className="">Back</span>
       </button>
 
-      <div className="bg-white bg-gray-900  rounded-xl shadow-lg overflow-hidden ">
+      <div className="bg-white bg-gray-900 dark:bg-white rounded-xl shadow-lg overflow-hidden ">
         {/* Image */}
         <div className="relative aspect-square bg-gray-100 dark:bg-gray-800">
           <img
@@ -197,11 +196,7 @@ const MemeDetails = () => {
           </div>
         </div>
       </div>
-      <div className=" pb-4 pt-4">
-        {/* This div adds padding to prevent content from being hidden under the fixed navbars */}
-      </div>
     </motion.div>
-    
   );
 };
 

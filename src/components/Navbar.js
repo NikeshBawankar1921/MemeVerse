@@ -12,12 +12,13 @@ import {
   faChartBar,
   faSun,
   faMoon,
-  faLaugh 
+  faLaugh,
+  faPlus
 } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
-  const dispatch = useDispatch();
   const location = useLocation();
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme.theme);
 
   const navItems = [
@@ -30,53 +31,53 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Fixed Header */}
-      <nav className="fixed top-0 left-0 w-full  bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 z-50 text-gray-900">
+      {/* Fixed Header - Only Logo and Theme Toggle */}
+      <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 z-50">
         <div className="max-w-screen-xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center text-white">
+            <div className="flex items-center">
               <FontAwesomeIcon icon={faLaugh} className="text-2xl text-primary mr-2" />
-              <span className="text-xl font-semibold dark:text-white">MemeVerse</span>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`flex items-center px-3 py-2 rounded-md ${
-                    location.pathname === item.path
-                      ? 'bg-primary text-white'
-                      : 'text-white bg-gray-700'
-                  }`}
-                >
-                  <FontAwesomeIcon icon={item.icon} className="mr-2" />
-                  <span>{item.label}</span>
-                </Link>
-              ))}
+              <span className="text-xl font-semibold text-gray-900 dark:text-white">MemeVerse</span>
             </div>
 
             {/* Theme toggle button */}
             <button
               onClick={() => dispatch(toggleTheme())}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-white"
+              className="p-2 rounded-full text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
               aria-label="Toggle theme"
             >
               <FontAwesomeIcon 
                 icon={theme === 'dark' ? faSun : faMoon} 
-                className="text-xl text-white"
-              /> Day/Night
+                className="text-xl"
+              />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Content Padding */}
-      <div className="pt-16">
-        {/* This div adds padding to prevent content from being hidden under the fixed header */}
+      <div className="pt-16 pb-20">
+        {/* Content padding */}
       </div>
 
-     
+      {/* Mobile Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50">
+        <div className="flex justify-between items-center px-4 h-16">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`flex items-center gap-2 ${
+                location.pathname === item.path
+                  ? 'text-primary'
+                  : 'text-gray-600 dark:text-gray-400'
+              }`}
+            >
+              <FontAwesomeIcon icon={item.icon} className="text-lg" />
+              <span className="text-sm">{item.label}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
     </>
   );
 };
