@@ -77,7 +77,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <div className=" fixed bottom-0 left-0 w-full  bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50">
+      <div className=" fixed bottom-0 left-0 w-full  bg-gray-900 border-t border-gray-200  z-50">
         <div className="flex w-full">
           {navItems.map((item) => (
             <Link
