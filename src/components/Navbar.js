@@ -1,20 +1,17 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
-import { toggleTheme } from '../store/themeSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faHome, 
-  faCompass, 
-  faCloudUpload, 
-  faUser, 
-  faChartBar,
+import {
+  faHome,
+  faCompass,
+  faCloudUpload,
+  faUser,
+  faLaugh,
   faSun,
   faMoon,
-  faLaugh,
-  faPlus
 } from '@fortawesome/free-solid-svg-icons';
+import { toggleTheme } from '../store/themeSlice';
 
 const Navbar = () => {
   const location = useLocation();
@@ -26,24 +23,31 @@ const Navbar = () => {
     { path: '/explore', icon: faCompass, label: 'Explore' },
     { path: '/upload', icon: faCloudUpload, label: 'Upload' },
     { path: '/profile', icon: faUser, label: 'Profile' },
-    { path: '/leaderboard', icon: faChartBar, label: 'Leaderboard' },
   ];
 
   return (
     <>
-      {/* Fixed Header - Only Logo and Theme Toggle */}
-      <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 z-50">
+      {/* Fixed Header - Logo and Theme Toggle */}
+      <nav className={`fixed top-0 left-0 w-full ${theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'} border-b z-50`}>
         <div className="max-w-screen-xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <FontAwesomeIcon icon={faLaugh} className="text-2xl text-primary mr-2" />
-              <span className="text-xl font-semibold text-gray-900 dark:text-white">MemeVerse</span>
-            </div>
+            <Link to="/" className="flex items-center">
+              <FontAwesomeIcon 
+                icon={faLaugh} 
+                className={`text-2xl ${theme === 'dark' ? 'text-white' : 'text-gray-900'} mr-2`} 
+              />
+              <span className={`text-xl font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                MemeVerse
+              </span>
+            </Link>
 
-            {/* Theme toggle button */}
             <button
               onClick={() => dispatch(toggleTheme())}
-              className="p-2 rounded-full text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+              className={`p-2 rounded-full ${
+                theme === 'dark' 
+                  ? 'text-white hover:bg-gray-800' 
+                  : 'text-gray-900 hover:bg-gray-100'
+              }`}
               aria-label="Toggle theme"
             >
               <FontAwesomeIcon 
@@ -55,21 +59,22 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="pt-16 pb-20">
-        {/* Content padding */}
-      </div>
+      {/* Content Padding */}
+      <div className="pt-16 pb-16" />
 
-      {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50">
-        <div className="flex justify-between items-center px-4 h-16">
+      {/* Bottom Navigation */}
+      <div className={`fixed bottom-0 left-0 w-full ${
+        theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'
+      } border-t z-50`}>
+        <div className="flex justify-around items-center h-16">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`flex items-center gap-2 ${
+              className={`flex items-center gap-2 px-3 py-2 rounded-md ${
                 location.pathname === item.path
                   ? 'text-primary'
-                  : 'text-gray-600 dark:text-gray-400'
+                  : theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
               }`}
             >
               <FontAwesomeIcon icon={item.icon} className="text-lg" />
