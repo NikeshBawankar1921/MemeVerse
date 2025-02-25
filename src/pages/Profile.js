@@ -112,8 +112,8 @@ const Profile = () => {
               )}
             </div>
             
-            <label className="absolute bottom-0 right-0 p-2 rounded-full cursor-pointer transition-all duration-200 bg-accent text-white hover:bg-opacity-90">
-              <CameraIcon className="h-5 w-5" />
+            <label className="absolute bottom-0 right-0 p-2 rounded-full cursor-pointer transition-all duration-200 bg-white text-gray-900 hover:bg-opacity-90">
+              <CameraIcon className="h-7 w-7" />
               <input
                 type="file"
                 accept="image/jpeg,image/png,image/gif"
@@ -132,7 +132,7 @@ const Profile = () => {
           </div>
 
           {/* Profile Info */}
-          <div className="flex-1 text-center md:text-left">
+          <div className="flex-1 text-center md:text-left bg-white">
             <div className="flex items-center justify-center md:justify-start gap-4 mb-2">
               {isEditing ? (
                 <input
