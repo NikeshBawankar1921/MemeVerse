@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <>
       {/* Fixed Header */}
-      <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50">
+      <nav className="fixed top-0 left-0 w-full  dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50">
         <div className="max-w-screen-xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center text-white">
@@ -47,7 +47,7 @@ const Navbar = () => {
                   className={`flex items-center px-3 py-2 rounded-md ${
                     location.pathname === item.path
                       ? 'bg-primary text-white'
-                      : 'text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+                      : 'text-white bg-gray-700'
                   }`}
                 >
                   <FontAwesomeIcon icon={item.icon} className="mr-2" />
@@ -77,7 +77,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50">
+      <div className=" fixed bottom-0 left-0 w-full  bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50">
         <div className="flex w-full">
           {navItems.map((item) => (
             <Link
