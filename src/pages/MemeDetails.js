@@ -87,10 +87,11 @@ const MemeDetails = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center space-x-2 mb-6  transition-colors "
+        className="flex items-center space-x-2 mb-6  transition-colors  dark:text-gray-900  "
       >
-        <ArrowLeftIcon className="h-5 w-5" />
-        <span className="">Back</span>
+        <ArrowLeftIcon className="h-10 w-10 border-2 border-white text-white " />
+        <ArrowLeftIcon className="h-10 w-10 border-2 border-white text-gray-900 " />
+        
       </button>
 
       <div className="bg-white bg-gray-900  rounded-xl shadow-lg overflow-hidden ">
