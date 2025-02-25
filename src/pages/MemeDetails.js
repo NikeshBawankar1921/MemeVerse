@@ -87,13 +87,13 @@ const MemeDetails = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center space-x-2 mb-6  transition-colors "
+        className="flex items-center space-x-2 mb-6 hover:text-accent transition-colors"
       >
         <ArrowLeftIcon className="h-5 w-5" />
-        <span className="">Back</span>
+        <span className='text-white'>Back</span>
       </button>
 
-      <div className="bg-white bg-gray-900 dark:bg-white rounded-xl shadow-lg overflow-hidden ">
+      <div className="bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden">
         {/* Image */}
         <div className="relative aspect-square bg-gray-100 dark:bg-gray-800">
           <img
@@ -120,7 +120,7 @@ const MemeDetails = () => {
                       animate={{ scale: 1 }}
                       exit={{ scale: 0 }}
                     >
-                      <HeartIconSolid className="h-7 w-7 text-gray-900" />
+                      <HeartIconSolid className="h-7 w-7 text-red-500" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -129,14 +129,14 @@ const MemeDetails = () => {
                       animate={{ scale: 1 }}
                       exit={{ scale: 0 }}
                     >
-                      <HeartIcon className="h-7 w-7 text-gray-900 " />
+                      <HeartIcon className="h-7 w-7" />
                     </motion.div>
                   )}
                 </AnimatePresence>
               </motion.button>
-              <ChatBubbleLeftIcon className="h-7 w-7 text-gray-900" />
+              <ChatBubbleLeftIcon className="h-7 w-7" />
               <button onClick={handleShare}>
-                <ShareIcon className="h-7 w-7 text-gray-900" />
+                <ShareIcon className="h-7 w-7" />
               </button>
             </div>
             <div className="text-sm text-gray-500">
@@ -147,7 +147,7 @@ const MemeDetails = () => {
           {/* Caption */}
           <div className="mt-4">
             <h2 className="text-xl font-bold">{meme.name}</h2>
-            <p className="text-gray-900 mt-1">
+            <p className="text-gray-500 dark:text-gray-400 mt-1">
               {likedMemes.includes(id) ? '1 like' : '0 likes'}
             </p>
           </div>
@@ -160,7 +160,7 @@ const MemeDetails = () => {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Add a comment..."
-                className="flex-1 rounded-lg border dark:border-gray-700 dark:bg-gray-800 px-4 py-2 text-white"
+                className="flex-1 rounded-lg border dark:border-gray-700 dark:bg-gray-800 px-4 py-2"
               />
               <button
                 type="submit"

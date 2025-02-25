@@ -29,10 +29,16 @@ export const themeSlice = createSlice({
   reducers: {
     toggleTheme: (state) => {
       try {
-        const newTheme = state.theme === 'light' ? 'dark' : 'light';
-        state.theme = newTheme;
-        localStorage.setItem('theme', newTheme);
-        document.documentElement.setAttribute('data-theme', newTheme);
+        state.theme = state.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', state.theme);
+        
+        if (typeof window !== 'undefined') {
+          if (state.theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
       } catch (error) {
         console.error('Error toggling theme:', error);
       }

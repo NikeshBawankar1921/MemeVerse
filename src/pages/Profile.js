@@ -89,9 +89,9 @@ const Profile = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white dark:bg-secondary rounded-xl shadow-lg p-6 mb-6"
+        className="bg-gray-900 dark:bg-secondary rounded-xl shadow-lg p-6 mb-6"
       >
-        <div className="flex flex-col md:flex-row items-center gap-6 bg-white">
+        <div className="flex flex-col md:flex-row items-center gap-6">
           {/* Avatar */}
           <div className="relative group">
             <div className="h-32 w-32 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700 relative">
@@ -112,7 +112,7 @@ const Profile = () => {
               )}
             </div>
             
-            <label className="absolute bottom-0 right-0 p-2 rounded-full cursor-pointer transition-all duration-200 bg-white text-gray-900 hover:bg-opacity-90">
+            <label className="absolute bottom-0 right-0 p-2 rounded-full cursor-pointer transition-all duration-200 bg-white text-black hover:bg-opacity-90">
               <CameraIcon className="h-7 w-7" />
               <input
                 type="file"
@@ -132,8 +132,8 @@ const Profile = () => {
           </div>
 
           {/* Profile Info */}
-          <div className="flex-1 text-center md:text-left bg-white">
-            <div className="flex items-center justify-center md:justify-start gap-4 mb-2 bg-white">
+          <div className="flex-1 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-4 mb-2">
               {isEditing ? (
                 <input
                   type="text"
@@ -159,7 +159,7 @@ const Profile = () => {
                 rows="2"
               />
             ) : (
-              <p className="text-gray-600 dark:text-gray-400 bg-white">{profile.bio}</p>
+              <p className="text-gray-600 dark:text-gray-400">{profile.bio}</p>
             )}
           </div>
         </div>
@@ -169,21 +169,20 @@ const Profile = () => {
       <div className="flex justify-center gap-4 mb-6">
         <button
           onClick={() => setActiveTab('posts')}
-          className={`text-gray-900 px-4 py-2 rounded-full transition-colors ${
+          className={`px-4 py-2 rounded-full transition-colors ${
             activeTab === 'posts'
-              ? 'bg-accent text-gray-900'
-              : 'bg-gray-100 dark:bg-gray-700 text-white'
+              ? 'bg-accent text-black'
+              : 'bg-gray-900 dark:bg-gray-900'
           }`}
         >
           My Posts
         </button>
         <button
           onClick={() => setActiveTab('liked')}
-          className={`text-gray-900 px-4 py-2 rounded-full transition-colors ${
+          className={`px-4 py-2 rounded-full transition-colors ${
             activeTab === 'liked'
-              ? 'bg-accent text-gray-900'
-              : 'bg-gray-100 dark:bg-gray-700 text-white'
-          
+              ? 'bg-accent text-black'
+              : 'bg-gray-900 dark:bg-gray-900'
           }`}
         >
           Liked Memes
@@ -198,7 +197,7 @@ const Profile = () => {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-white"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {activeTab === 'posts' ? (
             userMemes.length > 0 ? (
