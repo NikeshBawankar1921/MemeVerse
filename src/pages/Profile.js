@@ -91,7 +91,7 @@ const Profile = () => {
         animate={{ opacity: 1, y: 0 }}
         className="bg-white dark:bg-secondary rounded-xl shadow-lg p-6 mb-6"
       >
-        <div className="flex flex-col md:flex-row items-center gap-6">
+        <div className="flex flex-col md:flex-row items-center gap-6 bg-white">
           {/* Avatar */}
           <div className="relative group">
             <div className="h-32 w-32 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700 relative">
@@ -198,7 +198,7 @@ const Profile = () => {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-white"
         >
           {activeTab === 'posts' ? (
             userMemes.length > 0 ? (
