@@ -31,43 +31,41 @@ const Navbar = () => {
   return (
     <>
       {/* Fixed Header */}
-      <nav className="fixed top-0 left-0 w-full  dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50">
-        <div className="max-w-screen-xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center text-white">
-              <FontAwesomeIcon icon={faLaugh} className="text-2xl text-primary mr-2" />
-              <span className="text-xl font-semibold dark:text-white">MemeVerse</span>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`flex items-center px-3 py-2 rounded-md ${
-                    location.pathname === item.path
-                      ? 'bg-primary text-white'
-                      : 'text-white bg-gray-700'
-                  }`}
-                >
-                  <FontAwesomeIcon icon={item.icon} className="mr-2" />
-                  <span>{item.label}</span>
-                </Link>
-              ))}
-            </div>
-
-            {/* Theme toggle button */}
-            <button
-              onClick={() => dispatch(toggleTheme())}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-white"
-              aria-label="Toggle theme"
-            >
-              <FontAwesomeIcon 
-                icon={theme === 'dark' ? faSun : faMoon} 
-                className="text-xl text-white"
-              /> Day/Night
-            </button>
+      <nav className="bg-gray-800 text-white p-4 fixed w-full top-0 z-50">
+        <div className="max-w-screen-xl mx-auto flex justify-between items-center">
+          <div className="flex items-center text-white">
+            <FontAwesomeIcon icon={faLaugh} className="text-2xl text-primary mr-2" />
+            <span className="text-2xl font-bold">MemeVerse</span>
           </div>
+          
+          <div className="hidden md:flex items-center space-x-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex items-center px-3 py-2 rounded-md text-sm font-medium ${
+                  location.pathname === item.path
+                    ? 'bg-primary text-white'
+                    : 'text-white bg-gray-700'
+                }`}
+              >
+                <FontAwesomeIcon icon={item.icon} className="mr-2" />
+                <span>{item.label}</span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Theme toggle button */}
+          <button
+            onClick={() => dispatch(toggleTheme())}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-white"
+            aria-label="Toggle theme"
+          >
+            <FontAwesomeIcon 
+              icon={theme === 'dark' ? faSun : faMoon} 
+              className="text-xl text-white"
+            /> Day/Night
+          </button>
         </div>
       </nav>
 

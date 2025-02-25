@@ -103,7 +103,7 @@ const MemeCard = ({ meme }) => {
             onClick={() => setShowComments(!showComments)}
             className="focus:outline-none"
           > <Link to={`/meme/${meme.id}`}>
-            <ChatBubbleLeftIcon className="h-2 w-7"  />
+            <ChatBubbleLeftIcon className="h-7 w-7"  />
             </Link>
           </button>
 
