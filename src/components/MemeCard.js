@@ -22,14 +22,14 @@ const MemeCard = ({ meme }) => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.3
       }
     },
-    exit: { 
+    exit: {
       opacity: 0,
       y: -20,
       transition: {
@@ -41,11 +41,14 @@ const MemeCard = ({ meme }) => {
   return (
     <motion.div
       variants={cardVariants}
-      className="bg-white dark:bg-secondary rounded-xl shadow-lg overflow-hidden "
-    >
+      className="bg-gray-900 dark:bg-secondary rounded-xl shadow-lg overflow-hidden w-50vw h-50vh pb-2"
+   >
       {/* Header */}
       <div className="flex items-center p-4">
-        <div className="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+        <div className="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700">{meme.template_id}<img
+            src={meme.url}
+            alt={meme.name}
+          /></div>
         <div className="ml-3">
           <p className="font-medium">{meme.name}</p>
           <p className="text-sm text-gray-500 dark:text-gray-400">@user</p>
@@ -54,8 +57,8 @@ const MemeCard = ({ meme }) => {
 
       {/* Image */}
       <Link to={`/meme/${meme.id}`}>
-        <motion.div 
-          className="relative aspect-square bg-gray-100 dark:bg-gray-800"
+        <motion.div
+          className="relative aspect-square bg-gray-100 dark:bg-gray-800 w-full h-full"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
         >
@@ -98,21 +101,25 @@ const MemeCard = ({ meme }) => {
               )}
             </AnimatePresence>
           </motion.button>
-          <button 
-            onClick={() => setShowComments(!showComments)}
-            className="focus:outline-none"
-          >
-            <ChatBubbleLeftIcon className="h-2 w-7" />
-          </button>
+
+          <Link to={`/meme/${meme.id}`}>
+            <button
+              onClick={() => setShowComments(!showComments)}
+              className="focus:outline-none"
+            >
+              <ChatBubbleLeftIcon className="h-7 w-7" />
+            </button>
+          </Link>
+
           <button className="focus:outline-none">
             <ShareIcon className="h-7 w-7" />
           </button>
+
         </div>
       </div>
-      <div className=" pt-4">
-        {/* This div adds padding to prevent content from being hidden under the fixed navbars */}
-      </div>
+      
     </motion.div>
+    
   );
 };
 
